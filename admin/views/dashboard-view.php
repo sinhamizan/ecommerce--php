@@ -1,4 +1,5 @@
 
+                                            <div class="row">
                                             <!-- order-card start -->
                                             <div class="col-md-6 col-xl-3">
                                                 <div class="card bg-c-blue order-card">
@@ -397,5 +398,6 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+                                            </div>
                                             </div>
                                             <!-- users visite and profile end -->

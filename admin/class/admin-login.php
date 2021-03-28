@@ -34,6 +34,38 @@ class adminLogin{
             return $msg;
         }
     }
+
+    function admin_logout(){
+        unset($_SESSION['admin_id']);
+        unset($_SESSION['admin_email']);
+    }
+
+
+    function add_category($data){
+        $ctg_name = $data['ctg_name'];
+        $ctg_description = $data['ctg_description'];
+        $ctg_status = $data['ctg_status'];
+
+        $qs = "INSERT INTO category(ctg_name, ctg_description, ctg_status) VALUE('$ctg_name', '$ctg_description', $ctg_status)";
+
+        if(mysqli_query($this->conn, $qs)){
+           $msg = "Category Added Successfully.";
+           return $msg;
+        }else{
+            $msg = "Category Not Added Successfully.";
+           return $msg;
+        }
+    }
+
+
+    function manage_category(){
+        $qs = "SELECT * FROM category";
+
+        if(mysqli_query($this->conn, $qs)){
+            $ctg_info = mysqli_query($this->conn, $qs);
+            return $ctg_info;
+        }
+    }
 }
 
 

@@ -4,7 +4,16 @@ include("class/admin-login.php");
 
 session_start();
 $admin_email = $_SESSION['admin_email'];
+
+// when user not login, then user will go login page 
 if($_SESSION['admin_id'] == null){
+    header('location:index.php');
+}
+
+// logout
+if(isset($_GET['adminLogout'])){
+    $obj_adminlogin = new adminLogin();
+    $obj_adminlogin->admin_logout();
     header('location:index.php');
 }
 
@@ -43,7 +52,6 @@ if($_SESSION['admin_id'] == null){
                                 <div class="page-wrapper">
 
                                     <div class="page-body">
-                                        <div class="row">
 
                                             <?php  
                                             
@@ -68,7 +76,6 @@ if($_SESSION['admin_id'] == null){
                                             
                                             ?>
 
-                                        </div>
                                     </div>
 
                                     <div id="styleSelector">
